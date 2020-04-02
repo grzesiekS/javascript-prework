@@ -1,0 +1,13 @@
+/* Variables */
+$font-main: 'Press Start 2P', cursive;
+
+/*Global*/
+body {
+    font-family: $font-main;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+}
