@@ -79,9 +79,9 @@ function playGame(playerInput) {
 
     let playerMove = getMoveName(playerInput);
 
-    computerMove = getMoveName(changeResultCheat(playerInput, randomNumber));
+    computerMove = getMoveName(changeResultCheat(playerInput));
 
-    console.log('Zmieniona liczba komputera: ' + changeResultCheat(playerInput, randomNumber));
+    console.log('Zmieniona liczba komputera: ' + changeResultCheat(playerInput));
 
     printMessage('Mój ruch to: ' + computerMove);
 
@@ -99,7 +99,7 @@ function playGame(playerInput) {
 }
 //automatyczne uruchamianie gry
 function randomStart(argPlayerScore, argComputerScore) {
-    for(let i = 0; i < 5000; i++) {
+    for(let i = 0; i < 1000; i++) {
         let randomNumber = Math.floor(Math.random() * 3 + 1);
         let gameScore = playGame(randomNumber);
         if (gameScore == 'wygrana') {
@@ -107,6 +107,9 @@ function randomStart(argPlayerScore, argComputerScore) {
         } else if (gameScore == 'przegrana') {
             argComputerScore++;
         }
+
+        console.log(argPlayerScore, argComputerScore);
+        console.log('Runda: ' + (i + 1));
 
         printResult(argPlayerScore, argComputerScore);
     }
@@ -160,4 +163,4 @@ scissorsButton.addEventListener('click', function() {
     printResult(playerScore, computerScore);
 });
 
-//randomStart(0,0);
+randomStart(0,0);
