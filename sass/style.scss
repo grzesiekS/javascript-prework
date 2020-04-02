@@ -17,10 +17,31 @@ body {
     text-align: center;
 }
 
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 /* Splash */
 
 .splash {
     .page-title {
         color: #e74c3c;
+    }
+}
+
+/*Game Menu*/
+.game-menu {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    #buttons {
+        margin: 30px 0;
+    }
+
+    #messages {
+        margin: 30px 0;
+        line-height: 50px;
     }
 }
