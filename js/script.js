@@ -37,6 +37,29 @@ function playGame(playerInput) {
             }
         }
     }
+    //Funkcja zmieniająca input w zależności od wyboru gracza
+    function changeResultCheat(argPlayerInput) {
+        let rndNumberCheat = Math.floor(Math.random() * 100 + 1);
+        //w zależności od wylosowanej liczby zostaje zminiona wartość wybrana przez koputer
+        //przy liczbie mniejszej od 0.75 input komputera zostaje podmieniony
+        if (rndNumberCheat <= 75) {
+            if (argPlayerInput == 1) {
+                return 3;
+            } else if (argPlayerInput == 2) {
+                return 1;
+            } else {
+                return 2;
+            }
+        } else {
+            if (argPlayerInput == 1) {
+                return 2;
+            } else if (argPlayerInput == 2) {
+                return 3;
+            } else {
+                return 1;
+            }
+        }
+    }
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
 
@@ -52,11 +75,15 @@ function playGame(playerInput) {
         computerMove = 'nożyce';
     }*/
 
-    printMessage('Mój ruch to: ' + computerMove);
-
     console.log('Gracz wpisał: ' + playerInput);
 
     let playerMove = getMoveName(playerInput);
+
+    computerMove = getMoveName(changeResultCheat(playerInput, randomNumber));
+
+    console.log('Zmieniona liczba komputera: ' + changeResultCheat(playerInput, randomNumber));
+
+    printMessage('Mój ruch to: ' + computerMove);
 
     /*if (playerInput == '1') {
         playerMove = 'kamień';
@@ -69,6 +96,20 @@ function playGame(playerInput) {
     printMessage('Twój ruch to: ' + playerMove);
 
     return displayResult(computerMove, playerMove);
+}
+//automatyczne uruchamianie gry
+function randomStart(argPlayerScore, argComputerScore) {
+    for(let i = 0; i < 5000; i++) {
+        let randomNumber = Math.floor(Math.random() * 3 + 1);
+        let gameScore = playGame(randomNumber);
+        if (gameScore == 'wygrana') {
+            argPlayerScore++;
+        } else if (gameScore == 'przegrana') {
+            argComputerScore++;
+        }
+
+        printResult(argPlayerScore, argComputerScore);
+    }
 }
 
 let rockButton = document.getElementById('play-rock');
@@ -118,3 +159,5 @@ scissorsButton.addEventListener('click', function() {
 
     printResult(playerScore, computerScore);
 });
+
+//randomStart(0,0);
