@@ -9,7 +9,5 @@ function clearMessages(){
 }
 
 function printResult(playerScore, computerScore){
-	let div = document.createElement('div');
-	div.innerHTML = playerScore + ' - ' + computerScore;
-	document.getElementById('result').appendChild(div);
+	document.getElementById('result').innerHTML = playerScore + ' - ' + computerScore;
 }

@@ -17,17 +17,23 @@ function playGame(playerInput) {
     function displayResult(argComputerMove, argPlayerMove) {
         if (argPlayerMove == 'nieznany ruch') {
             printMessage('Nie wybrałeś właściwego ruchu!');
+            return 'error';
         } else {
             if (argPlayerMove == 'kamień' && argComputerMove == 'nożyce') {
                 printMessage('Ty wygrywasz!');
+                return 'wygrana';
             } else if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
                 printMessage('Ty wygrywasz!');
+                return 'wygrana';
             } else if (argPlayerMove == 'nożyce' && argComputerMove == 'papier') {
                 printMessage('Ty wygrywasz!');
+                return 'wygrana';
             } else if (argPlayerMove == argComputerMove) {
                 printMessage('Remis!');
+                return 'remis';
             } else {
                 printMessage('Ja wygrywam!');
+                return 'przegrana';
             }
         }
     }
@@ -62,21 +68,53 @@ function playGame(playerInput) {
 
     printMessage('Twój ruch to: ' + playerMove);
 
-    displayResult(computerMove, playerMove);
+    return displayResult(computerMove, playerMove);
 }
 
 let rockButton = document.getElementById('play-rock');
 let paperButton = document.getElementById('play-paper');
 let scissorsButton = document.getElementById('play-scissors');
 
+let playerScore = 0;
+let computerScore = 0;
+
+printResult(playerScore, computerScore);
+
 rockButton.addEventListener('click', function() {
-    playGame(1);
+    let gameScore = playGame(1);
+    if (gameScore == 'wygrana') {
+        playerScore++;
+    } else if (gameScore == 'przegrana') {
+        computerScore++;
+    }
+
+    console.log(playerScore, computerScore);
+
+    printResult(playerScore, computerScore);
 });
 
 paperButton.addEventListener('click', function() {
-    playGame(2);
+    let gameScore = playGame(2);
+    if (gameScore == 'wygrana') {
+        playerScore++;
+    } else if (gameScore == 'przegrana') {
+        computerScore++;
+    }
+
+    console.log(playerScore, computerScore);
+    
+    printResult(playerScore, computerScore);
 });
 
 scissorsButton.addEventListener('click', function() {
-    playGame(3);
+    let gameScore = playGame(3);
+    if (gameScore == 'wygrana') {
+        playerScore++;
+    } else if (gameScore == 'przegrana') {
+        computerScore++;
+    }
+
+    console.log(playerScore, computerScore);
+
+    printResult(playerScore, computerScore);
 });
