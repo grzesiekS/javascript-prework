@@ -7,3 +7,9 @@ function printMessage(msg){
 function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
+
+function printResult(playerScore, computerScore){
+	let div = document.createElement('div');
+	div.innerHTML = playerScore + ' - ' + computerScore;
+	document.getElementById('result').appendChild(div);
+}
