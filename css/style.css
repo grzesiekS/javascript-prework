@@ -1,12 +1,21 @@
 /* Variables */
 /*Global*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Press Start 2P", cursive;
 }
 
 .container {
   width: 1140px;
-  margin: 0 auto;
+  margin: 75px auto;
   text-align: center;
+}
+
+/* Splash */
+.splash .page-title {
+  color: #e74c3c;
 }
 /*# sourceMappingURL=style.css.map */

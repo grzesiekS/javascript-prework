@@ -1,13 +1,26 @@
 /* Variables */
 $font-main: 'Press Start 2P', cursive;
+$color-main: #e74c3c;
 
 /*Global*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: $font-main;
 }
 
 .container {
     width: 1140px;
-    margin: 0 auto;
+    margin: 75px auto;
     text-align: center;
+}
+
+/* Splash */
+
+.splash {
+    .page-title {
+        color: #e74c3c;
+    }
 }
