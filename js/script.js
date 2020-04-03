@@ -37,11 +37,11 @@ function playGame(playerInput) {
             }
         }
     }
-    //Funkcja zmieniająca input w zależności od wyboru gracza
+    //Function changing computer input based on the player input
     function changeResultCheat(argPlayerInput) {
         let rndNumberCheat = Math.floor(Math.random() * 100 + 1);
-        //w zależności od wylosowanej liczby zostaje zminiona wartość wybrana przez koputer
-        //przy liczbie mniejszej od 0.75 input komputera zostaje podmieniony
+        //depend on the random picked number the coputer input value will be changed
+        //if the random number is equal or below 75 computer input value will be change (player will win)
         if (rndNumberCheat <= 75) {
             if (argPlayerInput == 1) {
                 return 3;
@@ -50,6 +50,7 @@ function playGame(playerInput) {
             } else {
                 return 2;
             }
+        //if the random number is greater then 75 computer will win
         } else {
             if (argPlayerInput == 1) {
                 return 2;
@@ -97,11 +98,13 @@ function playGame(playerInput) {
 
     return displayResult(computerMove, playerMove);
 }
-//automatyczne uruchamianie gry
+//Automatically play n numbers of games
 function randomStart(argPlayerScore, argComputerScore) {
     for(let i = 0; i < 1000; i++) {
+
         let randomNumber = Math.floor(Math.random() * 3 + 1);
         let gameScore = playGame(randomNumber);
+
         if (gameScore == 'wygrana') {
             argPlayerScore++;
         } else if (gameScore == 'przegrana') {
@@ -122,45 +125,33 @@ let scissorsButton = document.getElementById('play-scissors');
 let playerScore = 0;
 let computerScore = 0;
 
+function changeScoreBoard(argGameScore) {
+    if (argGameScore == 'wygrana') {
+        playerScore++;
+    } else if (argGameScore == 'przegrana') {
+        computerScore++;
+    }
+
+    console.log(playerScore, computerScore);
+
+    printResult(playerScore, computerScore);
+}
+
 printResult(playerScore, computerScore);
 
 rockButton.addEventListener('click', function() {
     let gameScore = playGame(1);
-    if (gameScore == 'wygrana') {
-        playerScore++;
-    } else if (gameScore == 'przegrana') {
-        computerScore++;
-    }
-
-    console.log(playerScore, computerScore);
-
-    printResult(playerScore, computerScore);
+    changeScoreBoard(gameScore);
 });
 
 paperButton.addEventListener('click', function() {
     let gameScore = playGame(2);
-    if (gameScore == 'wygrana') {
-        playerScore++;
-    } else if (gameScore == 'przegrana') {
-        computerScore++;
-    }
-
-    console.log(playerScore, computerScore);
-    
-    printResult(playerScore, computerScore);
+    changeScoreBoard(gameScore);
 });
 
 scissorsButton.addEventListener('click', function() {
     let gameScore = playGame(3);
-    if (gameScore == 'wygrana') {
-        playerScore++;
-    } else if (gameScore == 'przegrana') {
-        computerScore++;
-    }
-
-    console.log(playerScore, computerScore);
-
-    printResult(playerScore, computerScore);
+    changeScoreBoard(gameScore);
 });
 
 randomStart(0,0);
