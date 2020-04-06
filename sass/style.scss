@@ -56,6 +56,7 @@ button {
 .game-menu {
     .wrapper {
         flex-direction: column;
+        text-align: center;
     }
 
     #buttons {
@@ -65,6 +66,33 @@ button {
     #messages {
         margin: 30px 0;
         line-height: 50px;
+    }
+
+    #result {
+        margin-top: 30px;
+    }
+
+    .games-generator {
+        margin: 15px 0;
+
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            width: 250px;
+            height: 50px;
+            font-size: 34px;
+            text-align: center;
+            font-family: inherit;
+            margin: 12px auto;
+            padding: 0;
+        }
+
+        #rndGameGenerator {
+            margin: 12px auto;
+        }
     }
 }
 
