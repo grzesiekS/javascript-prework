@@ -1,3 +1,10 @@
+let rockButton = document.getElementById('play-rock');
+let paperButton = document.getElementById('play-paper');
+let scissorsButton = document.getElementById('play-scissors');
+
+let playerScore = 0;
+let computerScore = 0;
+
 function playGame(playerInput) {
     clearMessages();
 
@@ -117,13 +124,6 @@ function randomStart(argPlayerScore, argComputerScore) {
         printResult(argPlayerScore, argComputerScore);
     }
 }
-
-let rockButton = document.getElementById('play-rock');
-let paperButton = document.getElementById('play-paper');
-let scissorsButton = document.getElementById('play-scissors');
-
-let playerScore = 0;
-let computerScore = 0;
 
 function changeScoreBoard(argGameScore) {
     if (argGameScore == 'wygrana') {
