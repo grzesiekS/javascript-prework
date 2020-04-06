@@ -1,6 +1,7 @@
 let rockButton = document.getElementById('play-rock');
 let paperButton = document.getElementById('play-paper');
 let scissorsButton = document.getElementById('play-scissors');
+let playButton = document.getElementById('rndGameGenerator');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -106,8 +107,8 @@ function playGame(playerInput) {
     return displayResult(computerMove, playerMove);
 }
 //Automatically play n numbers of games
-function randomStart(argPlayerScore, argComputerScore) {
-    for(let i = 0; i < 1000; i++) {
+function randomStart(argPlayerScore, argComputerScore, argGamesToPlayAuto) {
+    for(let i = 0; i < argGamesToPlayAuto; i++) {
 
         let randomNumber = Math.floor(Math.random() * 3 + 1);
         let gameScore = playGame(randomNumber);
@@ -118,6 +119,7 @@ function randomStart(argPlayerScore, argComputerScore) {
             argComputerScore++;
         }
 
+        console.log('Liczba rund: ' + argGamesToPlayAuto);
         console.log(argPlayerScore, argComputerScore);
         console.log('Runda: ' + (i + 1));
 
@@ -154,4 +156,16 @@ scissorsButton.addEventListener('click', function() {
     changeScoreBoard(gameScore);
 });
 
-randomStart(0,0);
+playButton.addEventListener('click', function() {
+    let gamesToPlayAuto = document.getElementById('gamesNumber').value;
+
+    if (gamesToPlayAuto < 1 || gamesToPlayAuto > 1000) {
+        alert('Podana liczba nie jest z zakresu od 1 do 1000');
+    } else if (gamesToPlayAuto % 1 != 0) {
+        alert('Podana liczba nie jest liczbą całkowitą');
+    } else {
+        randomStart(playerScore, computerScore, gamesToPlayAuto);
+    }
+
+});
+
