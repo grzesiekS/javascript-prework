@@ -156,10 +156,10 @@
     });
 
     playButton.addEventListener('click', function() {
-        let gamesToPlayAuto = document.getElementById('gamesNumber').value;
+        const gamesToPlayAuto = document.getElementById('gamesNumber').value;
 
         if (gamesToPlayAuto < 1) {
-            alert('Podana liczba jest mniejsza od 1');
+            alert('Podana liczba musi być większa bądź równa 1');
         } else if (gamesToPlayAuto % 1 != 0) {
             alert('Podana liczba nie jest liczbą całkowitą');
         } else {
@@ -167,6 +167,5 @@
             computerScore = 0;
             randomStart(playerScore, computerScore, gamesToPlayAuto);
         }
-
     });
 }
