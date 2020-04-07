@@ -75,8 +75,6 @@
 
         console.log('Wylosowana liczba to: ' + randomNumber)
 
-        let computerMove = getMoveName(randomNumber);
-
         /*if (randomNumber == 1) {
             computerMove = 'kamień';
         } else if (randomNumber == 2) {
@@ -87,9 +85,9 @@
 
         console.log('Gracz wpisał: ' + playerInput);
 
-        let playerMove = getMoveName(playerInput);
+        const playerMove = getMoveName(playerInput);
 
-        computerMove = getMoveName(changeResultCheat(playerInput));
+        const computerMove = getMoveName(changeResultCheat(playerInput));
 
         console.log('Zmieniona liczba komputera: ' + changeResultCheat(playerInput));
 
