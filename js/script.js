@@ -47,7 +47,7 @@
             }
         }
         //Function changing computer input based on the player input
-        function changeResultCheat(argPlayerInput) {
+        const changeResultCheat = function (argPlayerInput) {
             let rndNumberCheat = Math.floor(Math.random() * 100 + 1);
             //depend on the random picked number the coputer input value will be changed
             //if the random number is equal or below 75 computer input value will be change (player will win)
