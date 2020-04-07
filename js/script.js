@@ -126,7 +126,7 @@
         }
     }
 
-    function changeScoreBoard(argGameScore) {
+    const changeScoreBoard = function (argGameScore) {
         if (argGameScore == 'wygrana') {
             playerScore++;
         } else if (argGameScore == 'przegrana') {
