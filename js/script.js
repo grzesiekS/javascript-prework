@@ -106,7 +106,7 @@
         return displayResult(computerMove, playerMove);
     }
     //Automatically play n numbers of games
-    function randomStart(argPlayerScore, argComputerScore, argGamesToPlayAuto) {
+    const randomStart = function (argPlayerScore, argComputerScore, argGamesToPlayAuto) {
         for(let i = 0; i < argGamesToPlayAuto; i++) {
 
             let randomNumber = Math.floor(Math.random() * 3 + 1);
