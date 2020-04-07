@@ -4,13 +4,13 @@
           scissorsButton = document.getElementById('play-scissors'),
           playButton = document.getElementById('rndGameGenerator');
 
-    let playerScore = 0;
-    let computerScore = 0;
+    let playerScore = 0,
+        computerScore = 0;
 
     function playGame(playerInput) {
         clearMessages();
 
-        function getMoveName(argMoveId) {
+        const getMoveName = function (argMoveId) {
             if (argMoveId == 1) {
                 return 'kamień';
             } else if (argMoveId == 2) {
@@ -165,7 +165,9 @@
         } else if (gamesToPlayAuto % 1 != 0) {
             alert('Podana liczba nie jest liczbą całkowitą');
         } else {
-            randomStart(0, 0, gamesToPlayAuto);
+            playerScore = 0;
+            computerScore = 0;
+            randomStart(playerScore, computerScore, gamesToPlayAuto);
         }
 
     });
