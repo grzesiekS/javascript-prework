@@ -159,8 +159,8 @@ scissorsButton.addEventListener('click', function() {
 playButton.addEventListener('click', function() {
     let gamesToPlayAuto = document.getElementById('gamesNumber').value;
 
-    if (gamesToPlayAuto < 1 || gamesToPlayAuto > 1000) {
-        alert('Podana liczba nie jest z zakresu od 1 do 1000');
+    if (gamesToPlayAuto < 1) {
+        alert('Podana liczba nie jest mniejsza od 1');
     } else if (gamesToPlayAuto % 1 != 0) {
         alert('Podana liczba nie jest liczbą całkowitą');
     } else {
