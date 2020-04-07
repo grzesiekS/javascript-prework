@@ -141,17 +141,17 @@
     printResult(playerScore, computerScore);
 
     rockButton.addEventListener('click', function() {
-        let gameScore = playGame(1);
+        const gameScore = playGame(1);
         changeScoreBoard(gameScore);
     });
 
     paperButton.addEventListener('click', function() {
-        let gameScore = playGame(2);
+        const gameScore = playGame(2);
         changeScoreBoard(gameScore);
     });
 
     scissorsButton.addEventListener('click', function() {
-        let gameScore = playGame(3);
+        const gameScore = playGame(3);
         changeScoreBoard(gameScore);
     });
 
