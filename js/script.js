@@ -106,23 +106,26 @@
         return displayResult(computerMove, playerMove);
     }
     //Automatically play n numbers of games
-    const randomStart = function (argPlayerScore, argComputerScore, argGamesToPlayAuto) {
+    const randomStart = function (argGamesToPlayAuto) {
+        let playerScore = 0;
+        let computerScore = 0;
+
         for(let i = 0; i < argGamesToPlayAuto; i++) {
 
             let randomNumber = Math.floor(Math.random() * 3 + 1);
             let gameScore = playGame(randomNumber);
 
             if (gameScore == 'wygrana') {
-                argPlayerScore++;
+                playerScore++;
             } else if (gameScore == 'przegrana') {
-                argComputerScore++;
+                computerScore++;
             }
 
             console.log('Liczba rund: ' + argGamesToPlayAuto);
-            console.log(argPlayerScore, argComputerScore);
+            console.log(playerScore, computerScore);
             console.log('Runda: ' + (i + 1));
 
-            printResult(argPlayerScore, argComputerScore);
+            printResult(playerScore, computerScore);
         }
     }
 
@@ -163,9 +166,7 @@
         } else if (gamesToPlayAuto % 1 != 0) {
             alert('Podana liczba nie jest liczbą całkowitą');
         } else {
-            playerScore = 0;
-            computerScore = 0;
-            randomStart(playerScore, computerScore, gamesToPlayAuto);
+            randomStart(gamesToPlayAuto);
         }
     });
 }
