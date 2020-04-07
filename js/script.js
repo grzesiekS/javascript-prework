@@ -7,7 +7,7 @@
     let playerScore = 0,
         computerScore = 0;
 
-    function playGame(playerInput) {
+    const playGame = function (playerInput) {
         clearMessages();
 
         const getMoveName = function (argMoveId) {
