@@ -112,8 +112,8 @@
 
         for(let i = 0; i < argGamesToPlayAuto; i++) {
 
-            let randomNumber = Math.floor(Math.random() * 3 + 1);
-            let gameScore = playGame(randomNumber);
+            const randomNumber = Math.floor(Math.random() * 3 + 1);
+            const gameScore = playGame(randomNumber);
 
             if (gameScore == 'wygrana') {
                 playerScore++;
